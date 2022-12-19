@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
-@RunWith(SpringRunner.class)
+@Transactional
 public class CopyTestSuite {
 
     @Autowired
@@ -41,7 +42,7 @@ public class CopyTestSuite {
 
         //Then
         assertEquals(dumaKey1.getId(), testCopy1.get().getId());
-        assertEquals(dumaKey1.getId(), testCopy2.get().getId());
+        assertEquals(dumaKey2.getId(), testCopy2.get().getId());
 
         //CleanUp
         copyRepository.deleteAll();
