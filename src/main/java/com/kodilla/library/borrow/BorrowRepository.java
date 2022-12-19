@@ -8,15 +8,4 @@ import java.util.Optional;
 @Repository
 public interface BorrowRepository extends CrudRepository<Borrow, Long> {
 
-    @Override
-    <S extends Borrow> S save(S entity);
-
-    @Override
-    Optional<Borrow> findById(Long aLong);
-
-    @Override
-    void deleteAll();
-
-    @Override
-    void deleteById(Long aLong);
 }
