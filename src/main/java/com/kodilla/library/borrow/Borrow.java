@@ -32,6 +32,13 @@ public class Borrow {
         this.returnDate = returnDate;
     }
 
+    public Borrow(LocalDate borrowDate, LocalDate returnDate, Reader reader, Copy copy) {
+        this.borrowDate = borrowDate;
+        this.returnDate = returnDate;
+        this.reader = reader;
+        this.copy = copy;
+    }
+
     @ManyToOne
     @JoinColumn(name = "READER_ID")
     private Reader reader;
