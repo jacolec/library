@@ -11,6 +11,10 @@ public class CopyMapper {
 
     private BookService bookService;
 
+    public CopyMapper(BookService bookService) {
+        this.bookService = bookService;
+    }
+
     public Copy mapToCopy(CopyDto copyDto) {
         return new Copy(copyDto.getStatus(), bookService.getBook(copyDto.getBookId()));
     }

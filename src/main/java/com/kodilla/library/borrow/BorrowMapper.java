@@ -13,6 +13,11 @@ public class BorrowMapper {
     private ReaderService readerService;
     private CopyService copyService;
 
+    public BorrowMapper(ReaderService readerService, CopyService copyService) {
+        this.readerService = readerService;
+        this.copyService = copyService;
+    }
+
     public Borrow mapToBorrow(BorrowDto borrowDto) {
         return new Borrow(borrowDto.getBorrowDate(),
                 borrowDto.getReturnDate(),
