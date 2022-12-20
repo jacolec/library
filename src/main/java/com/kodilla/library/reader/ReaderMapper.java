@@ -2,6 +2,9 @@ package com.kodilla.library.reader;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ReaderMapper {
 
@@ -16,5 +19,11 @@ public class ReaderMapper {
                 reader.getFirstname(),
                 reader.getLastname(),
                 reader.getSignUpDate());
+    }
+
+    public List<ReaderDto> mapToReaderListDto(final List<Reader> readerList) {
+        return readerList.stream()
+                .map(this::mapToReaderDto)
+                .collect(Collectors.toList());
     }
 }

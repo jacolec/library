@@ -11,4 +11,6 @@ public class CopyDto {
 
     private Long id;
     private String status;
+
+    private Long bookId;
 }

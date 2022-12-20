@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class CopyService {
 
@@ -17,6 +18,14 @@ public class CopyService {
 
     public void deleteCopy(final Long copyId) {
         copyRepository.deleteById(copyId);
+    }
+
+    public List<Copy> getCopies() {
+        return (List<Copy>) copyRepository.findAll();
+    }
+
+    public Copy getCopy(Long copyId) {
+        return copyRepository.findById(copyId).get();
     }
 
 
